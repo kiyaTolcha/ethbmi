@@ -194,7 +194,7 @@ class _InputPageState extends State<InputPage> {
               ],
             )),
             Container(
-              child: Text(),
+              child: Text("አስብ"),
               color: kBottomContainerColor,
               margin: EdgeInsets.only(top: 10.0),
               width: double.infinity,
