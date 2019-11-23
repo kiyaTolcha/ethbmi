@@ -3,14 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'results.dart';
+import 'bottom_btn.dart';
+import 'round_icon_btn.dart';
+import 'calc_brain.dart';
 
-Color cardColor =kInactiveCardColor;
+Color cardColor = kInactiveCardColor;
 
-enum Gender {
-  male,
-  female
-}
-
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,9 +19,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedG;
-  int height=180;
-  int weight=60;
-  int age=12;
+  int height = 180;
+  int weight = 60;
+  int age = 12;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,24 +38,28 @@ class _InputPageState extends State<InputPage> {
                 children: <Widget>[
                   Expanded(
                     child: ReusableCard(
-                      onPress: (){
-                        setState((){
-                          selectedG=Gender.male;
+                      onPress: () {
+                        setState(() {
+                          selectedG = Gender.male;
                         });
                       },
-                      colour: cardColor=selectedG==Gender.male ? kActiveCardColor : kInactiveCardColor,
+                      colour: cardColor = selectedG == Gender.male
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       cardChild: IconContent(
                           gender: 'ወንድ', iconGender: FontAwesomeIcons.mars),
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      onPress: (){
-                        setState((){
-                          selectedG=Gender.female;
+                      onPress: () {
+                        setState(() {
+                          selectedG = Gender.female;
                         });
                       },
-                      colour: cardColor = selectedG==Gender.female ? kActiveCardColor : kInactiveCardColor,
+                      colour: cardColor = selectedG == Gender.female
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
                       cardChild: new IconContent(
                         gender: 'ሴት',
                         iconGender: FontAwesomeIcons.venus,
@@ -67,50 +71,50 @@ class _InputPageState extends State<InputPage> {
             ),
             Expanded(
               child: ReusableCard(
-                  colour: kActiveCardColor,
-                  cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('ቁመት',style:kLableTextStyle),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.baseline,
-                        textBaseline: TextBaseline.alphabetic,
-                        children: <Widget>[
-                          Text(
-                            height.toString(),
-                            style:kNumberSytle,
-                          ),
-                          Text(
-                            "ሴ.ሜ.",
-                            style: kLableTextStyle,
-                          )
-                        ],
+                colour: kActiveCardColor,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('ቁመት', style: kLableTextStyle),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: <Widget>[
+                        Text(
+                          height.toString(),
+                          style: kNumberSytle,
+                        ),
+                        Text(
+                          "ሴ.ሜ.",
+                          style: kLableTextStyle,
+                        )
+                      ],
+                    ),
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        activeTrackColor: Colors.white,
+                        inactiveTrackColor: Color(0xff8d8e98),
+                        overlayColor: Color(0x29eb1555),
+                        thumbShape:
+                            RoundSliderThumbShape(enabledThumbRadius: 9.0),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 18.0),
+                        thumbColor: Color(0xffeb1555),
                       ),
-                      SliderTheme(
-                        data:SliderTheme.of(context).copyWith(
-                          activeTrackColor: Colors.white,
-                          inactiveTrackColor: Color(0xff8d8e98),
-                          overlayColor: Color(0x29eb1555),
-                          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 9.0),
-                          overlayShape: RoundSliderOverlayShape(overlayRadius: 18.0),
-                          thumbColor: Color(0xffeb1555),
-
-                        ),
-                        child: Slider(
-                          value: height.toDouble(),
-                          min: 120.0,
-                          max:220.0,
-                          onChanged: (double newValue){
-                            setState((){
-                              height=newValue.toInt();
-                            });
-                          },
-
-                        ),
-                      )
-                    ],
-                  ),
+                      child: Slider(
+                        value: height.toDouble(),
+                        min: 120.0,
+                        max: 220.0,
+                        onChanged: (double newValue) {
+                          setState(() {
+                            height = newValue.toInt();
+                          });
+                        },
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -119,12 +123,12 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColor,
-                    cardChild:Column(
+                    cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
                           'ክብደት',
-                           style:kLableTextStyle ,
+                          style: kLableTextStyle,
                         ),
                         Text(
                           weight.toString(),
@@ -135,16 +139,18 @@ class _InputPageState extends State<InputPage> {
                           children: <Widget>[
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
-                              onaction:(){
+                              onaction: () {
                                 setState(() {
                                   weight--;
                                 });
-                              } ,
+                              },
                             ),
-                            SizedBox(width: 10,),
+                            SizedBox(
+                              width: 10,
+                            ),
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
-                              onaction: (){
+                              onaction: () {
                                 setState(() {
                                   weight++;
                                 });
@@ -157,29 +163,33 @@ class _InputPageState extends State<InputPage> {
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: kActiveCardColor,
+                  child: ReusableCard(
+                    colour: kActiveCardColor,
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text("እድሜ",
-                        style: kLableTextStyle,),
-                        Text(age.toString(),
-                        style:kNumberSytle),
+                        Text(
+                          "እድሜ",
+                          style: kLableTextStyle,
+                        ),
+                        Text(age.toString(), style: kNumberSytle),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
-                              onaction:(){
+                              onaction: () {
                                 setState(() {
                                   age--;
                                 });
-                              } ,
+                              },
                             ),
-                            SizedBox(width: 10,),
+                            SizedBox(
+                              width: 10,
+                            ),
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
-                              onaction: (){
+                              onaction: () {
                                 setState(() {
                                   age++;
                                 });
@@ -193,33 +203,19 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             )),
-            Container(
-              child: Text("አስብ"),
-              color: kBottomContainerColor,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
+            BottomBtn(
+              buttonTitle: "አስብ",
+              onTap: () {
+                CalcBrain calc=CalcBrain(height: height,weight: weight);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Results(
+                      bmiResult: calc.calcBMI(),
+                      bmiDesc: calc.getResult(),
+                      bmiText: calc.getStr(),
+                    )));
+              },
             )
           ],
         ));
-  }
-}
-class RoundIconButton extends StatelessWidget{
-  RoundIconButton({@required this.icon,@required this.onaction});
-  final IconData icon;
-  final Function onaction;
-  @override
-  Widget build(BuildContext context){
-    return RawMaterialButton(
-      child: Icon(icon),
-      onPressed:onaction,
-      elevation: 0.0,
-      constraints: BoxConstraints.tightFor(
-        width: 40,
-        height: 40,
-      ),
-      shape:CircleBorder(),
-      fillColor: Color(0xff4c4f5e),
-    );
   }
 }
