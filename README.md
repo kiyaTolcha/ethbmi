@@ -1,6 +1,6 @@
 # ethbmi
 
-This is an BMI application in amarich version
+This is an BMI application in Amharic(አማርኛ) version
 
 ## Getting Started
 
