@@ -21,7 +21,7 @@ class CalcBrain{
   }
   String getStr(){
     if(_bmi >= 25.0){
-      return 'አረ አንዳንዴም ከእራቷ ቅነስ ለኔ ብጤው';
+      return 'አረ አንዳንዴም ከእራቷ ቅነስ ለኔ ብጤው ';
     }else if(_bmi>= 18.5){
       return 'ማይመጣ መስሎዎት እንዳይጋደሙ ወጣብለው ዙጥ ዙጥ';
     }else{

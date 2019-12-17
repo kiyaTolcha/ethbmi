@@ -1,6 +1,11 @@
 # ethbmi
 
-A new Flutter application.
+This is an BMI application in Amharic(አማርኛ) version
+
+## Screenshots
+
+![Homepage](screenshot/Home.png)
+![Results](screenshot/Final.png)
 
 ## Getting Started
 

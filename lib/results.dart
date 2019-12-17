@@ -47,7 +47,7 @@ class Results extends StatelessWidget{
               ),
             ),
           ),
-          BottomBtn(buttonTitle: "እንደና አስብ",
+          BottomBtn(buttonTitle: "እንደገና አስብ",
           onTap: (){
             Navigator.pop(context);
           },)
